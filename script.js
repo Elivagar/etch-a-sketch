@@ -1,5 +1,12 @@
 const container = document.querySelector("#container");
 
+function getRandomRGB() {
+    function getRandomNumber() {
+        return Math.floor(Math.random() * 255);
+    }
+    return `rgb(${getRandomNumber()}, ${getRandomNumber()}, ${getRandomNumber()})`;
+}
+
 function createSquares(num) {
     let percentage = (100 / num) + "%";
     num = num * num;
@@ -10,9 +17,21 @@ function createSquares(num) {
         square.style.flex = `0 0 ${percentage}`;
         container.appendChild(square);
 
+        let hoverCount = 0;
+    
         square.addEventListener("mouseenter", () => {
-            square.style.backgroundColor = "#8E8E93";
+            hoverCount++
+            if (!square.style.backgroundColor) {
+                square.style.backgroundColor = getRandomRGB();
+                square.style.opacity = 0.1;
+            }
         });
+
+        if (hoverCount < 10) {
+            square.addEventListener("mouseenter", () => {
+                square.style.opacity = hoverCount / 10;
+            });
+        }
     }
 }
 createSquares(16);
