@@ -1,0 +1,27 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(50, 50, 50);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    border: 5px solid rgb(180, 180, 180);
+    height: 800px;
+    width: 800px;
+}
+
+.square {
+    display: flex;
+    flex: 0 0 6.25%;
+    aspect-ratio: 1 / 1;
+    /* border: 1px solid rgb(60, 60, 60); */
+}
